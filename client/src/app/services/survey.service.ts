@@ -24,4 +24,16 @@ createSurvey(survey: Survey) {
 
   return this.http.post(`${this.baseURL}`, survey);
 }
+
+getOneSurvey(id) {
+  console.log('getOneSurvey', id);
+  return this.http.get(`${this.baseURL}/${id}`);
+}
+deleteSurvey(id) {
+  return this.http.delete<any>(`${this.baseURL}/${id}`);
+}
+vote(id, survey) {
+  console.log('voted inside Sevice');
+  return this.http.post(`${this.baseURL}/${id}`, survey);
+}
 }

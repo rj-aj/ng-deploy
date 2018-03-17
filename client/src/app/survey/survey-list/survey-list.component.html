@@ -1,5 +1,13 @@
-<div class ="home">
-  <a [routerLink]="['/create']">Add a New Poll</a>
+<div class="list">
+  <div class="row">
+      <div class="col-md-4 col-md-pull-2">
+      <button> <a [routerLink]="['/create']">Add a New Poll</a>
+      </button>
+    </div>
+    <div class="col-md-4 col-md-pull-2">
+      <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  </div>
   <h3>Current Polls</h3>
   <table class="table table-striped">
     <thead>
@@ -14,9 +22,15 @@
       <tr *ngFor="let survey of surveys">
         <td>{{ survey._user.username }}</td>
         <td>
-          <button class="btn btn-success" [routerLink]="['/survey', survey._id]">View Poll Details</button>
-          </td>
+          <a [routerLink]="['/survey', survey._id]">{{ survey.question }}</a>
+        </td>
+        <td>{{ survey.createdAt | date:'MMMM dd yyyy' }}</td>
+        <td> <!--*ngIf="survey._user._id === userId" --> <button btn btn-danger (click)="onDelete(survey._id)"> Delete</button>
+
+        </td>
       </tr>
+
+
     </tbody>
   </table>
 </div>

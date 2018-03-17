@@ -18,7 +18,11 @@ var User = mongoose.model('User');
 			console.log(request.params);
 	
 			Survey.find({_id: request.params.id})
-				.then(survey => response.json(survey))
+				.then(survey => 
+					{
+						console.log('remove this survey', survey);
+						response.json(survey)
+					})
 				.catch(error => response.status(404).json('error getting the survey'));
 		},
 	

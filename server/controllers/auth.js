@@ -1,11 +1,9 @@
 const User = require("mongoose").model("User");
 
 function completeLogin(request, response, user) {
-    // request.session.user = user;
-    response.cookie("UserID", user._id);
+    request.session.user = user.toObject();
+    response.cookie("UserID", user._id.toString());
     response.cookie("expiration", Date.now() + 86400 * 1000);
-    console.log('cookies');
-    console.log(response);
     response.json(user);
 }
 module.exports = {
