@@ -19,7 +19,9 @@ export class SurveyService {
     return this.http.get(`${this.baseURL}`);
 }
 createSurvey(survey: Survey) {
-  survey._user = this.cookieService.get('userID');
+  survey._user = this.cookieService.get('UserID');
+  console.log('cookie userid' , this.cookieService.get('UserID'));
+
   return this.http.post(`${this.baseURL}`, survey);
 }
 }
