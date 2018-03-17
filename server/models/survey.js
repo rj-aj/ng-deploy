@@ -7,67 +7,51 @@ const SurveySchema = new Schema( {
 		         trim: true,
 		         minlength: 8,
             },
-    option_1:{ type: String,
+    option1:{ type: String,
 		         required: true,
 		         trim: true,
                  minlength: 3,
-                 votes: [{
-                    type: Number,
-                    default: 0
-                    }]
-              },
-              vote_1: {
+                votes: {
                 type: Number,
-                default: 0,
+                default: 0
+                }
             },
-            option_2: {
+            option2: {
                 type: String,
-                vote: Number,
-                required: true,
-                trim: true,
-                minlength: 3,
-                votes: [{
-                    type: Number,
-                    default: 0
-                }]
-            },
-            vote_2: {
+		         required: true,
+		         trim: true,
+                 minlength: 3,
+                votes: {
                 type: Number,
-                default: 0,
+                default: 0
+                }
             },
-            option_3: {
+            
+            option3: {
                 type: String,
-                vote: Number,
-                required: true,
-                trim: true,
-                minlength: 3,
-                votes: [{
-                    type: Number,
-                    default: 0
-                }]
-            },
-            vote_3: {
+		         required: true,
+		         trim: true,
+                 minlength: 3,
+                votes: {
                 type: Number,
-                default: 0,
+                default: 0
+                }
             },
-            option_4: {
+            
+            option4: {
                 type: String,
-                vote: Number,
                 required: true,
-                trim: true,
-                minlength: 3,
-                votes: [{
-                    type: Number,
-                    default: 0
-                }]
-            },
-            vote_4: {
+		         trim: true,
+                 minlength: 3,
+                votes: {
                 type: Number,
-                default: 0,
+                default: 0
+                }
             },
+            
         
-            _user: { type: Schema.Types.ObjectId, ref: 'User', required: true }
+        _user: { type: Schema.Types.ObjectId, ref: 'User', required: true }
         },{ timestamps: true })
         
         mongoose.model('Survey', SurveySchema);
-        // var User = mongoose.model('Survey')
+        

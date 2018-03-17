@@ -17,11 +17,6 @@
         class="form-control" #username='ngModel' required>
       </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" name="password" [(ngModel)]="user.password"
-        class="form-control" #password='ngModel' required>
-      </div>
 
       <button class="btn btn-primary" [disabled]="!login.valid">Login</button>
     </form>

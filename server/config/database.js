@@ -12,7 +12,7 @@ const modelsPath = path.resolve('server/models');
 mongoose.Promise = global.Promise;
 
 // connect to database
-mongoose.connect('mongodb://localhost/testing');
+mongoose.connect('mongodb://localhost/surveyrj');
 mongoose.connection.on('connected', () => console.log('mongodb connected'));
 
 // path to the models folder

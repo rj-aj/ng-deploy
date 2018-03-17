@@ -7,4 +7,4 @@ module.exports = router
 	.post('api/survey/', surveyController.create)
 	.get('api/survey/:id', surveyController.findOne)
 	.post('api/survey/:id', surveyController.vote)
-	.delete('api/survey/:id', surveyController.destroy);
+	.delete('api/survey/:id', surveyController.delete);

@@ -30,14 +30,8 @@ login(user: User): Observable<User> {
       tap(() => this.loggedIn$.next(true))
     );
 }
-register(user: User): Observable<User> {
-  return this.http
-    .post(`${this.base}/register`, user)
-    .pipe(
-      map(response => response.json()),
-      tap(() => this.loggedIn$.next(true))
-    );
-  }
+
+
 logout(): Observable<any> {
   return this.http
     .delete(`${this.base}/logout`)

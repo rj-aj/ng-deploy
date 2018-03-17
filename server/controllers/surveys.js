@@ -10,7 +10,7 @@ var User = mongoose.model('User');
 			Survey.find({})
 				.populate('_user')
 				.then(surveys => response.json(surveys))
-				.catch(error => response.status(404).json('error retrieving the surveys'));
+				.catch(error => response.status(404).json('error getting the surveys'));
 		},
 	
 		findOne(request, response) {
@@ -19,7 +19,7 @@ var User = mongoose.model('User');
 	
 			Survey.find({_id: request.params.id})
 				.then(survey => response.json(survey))
-				.catch(error => response.status(404).json('error retrieving the survey'));
+				.catch(error => response.status(404).json('error getting the survey'));
 		},
 	
 		create(request, response) {
@@ -37,7 +37,7 @@ var User = mongoose.model('User');
 		},
 	
 		
-		destroy(request, response) {
+		delete(request, response) {
 			// console.log(request.params);
 			Survey.findByIdAndRemove({_id: request.params.id})
 				.then(survey => {
@@ -52,7 +52,7 @@ var User = mongoose.model('User');
 		},
 	
 		vote(request, response) {
-			// console.log(request.params);
+			 console.log(request.params);
 			Survey.findByIdAndUpdate({_id: request.params.id}, request.body)
 				.then(survey => {
 					console.log('updated survey', survey)

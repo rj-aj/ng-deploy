@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './home/login/login.component';
-import { RegisterComponent } from './home/register/register.component';
 import { SurveyDetailsComponent } from './survey/survey-details/survey-details.component';
 import { SurveyListComponent } from './survey/survey-list/survey-list.component';
 import { SurveyNewComponent } from './survey/survey-new/survey-new.component';
@@ -22,7 +21,6 @@ import { HttpModule } from '@angular/http';
     HomeComponent,
     NavComponent,
     LoginComponent,
-    RegisterComponent,
     SurveyDetailsComponent,
     SurveyListComponent,
     SurveyNewComponent

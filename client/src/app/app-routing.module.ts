@@ -11,7 +11,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: HomeComponent
 },
-{ path: 'list', component: SurveyListComponent },
+{ path: 'dashboard', component: SurveyListComponent },
 { path: 'create', component: SurveyNewComponent },
 { path: 'survey/:survey_id', component: SurveyDetailsComponent }
 

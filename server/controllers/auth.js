@@ -2,32 +2,49 @@ const User = require("mongoose").model("User");
 
 function completeLogin(request, response, user) {
 	console.log("completing login");
-
-	request.session.user = user.toObject();
-	delete request.session.user.password;
-
-	response.cookie("userID", user._id.toString());
-	response.cookie("expiration", Date.now() + 86400 * 1000);
+    console.log(user);
+	//request.session.user = user;
+    console.log("after session ");
     
+    response.cookie("userID", user._id);
+    console.log("after setting cookie ");
+	response.cookie("expiration", Date.now() + 86400 * 1000);
+    console.log("after setting cookie ");
 	response.json(user);
 }
 module.exports = {
     login(request, response) { 
+        console.log(request.body.username);
     User.findOne({ username: request.body.username })
         .then(user => {
-            if(!user) { throw new Error(); }
 
-            return User.validatePassword(request.body.password, user.password)
-                .then(() => {
-                    completeLogin(request, response, user);
+            console.log('user found');
+            console.log(user);
+            if(! user || user == null) { 
+                console.log('if user null');
+                console.log(request.body);
+                User.create(request.body)
+                .then(user => {
+                    console.log('inside create then');
+                    console.log(user);
+                     return completeLogin(request, response, user);
+                })
+                .catch(error => {
+                        response.status(422).json(
+                Object.keys(error.errors).map(key => error.errors[key].message)
+                    );
                 });
-
+                console.log('after if user null');
+             }
+             console.log('before calling completelogin');
+            return completeLogin(request, response, user);
+            console.log('after calling completelogin');
         }).catch(error => {
-            response.status(401).json("email/password combo not found");
+            response.status(401).json("user  not found");
         });
 
-},
-register(request, response) { 
+    },/*register(request, response) { 
+    console.log('in register');
     User.create(request.body)
         .then(user => {
             completeLogin(request, response, user);
@@ -38,28 +55,12 @@ register(request, response) {
             );
         });
 },
-
+*/
 logout(request, response) { 
     request.session.destroy();
     response.clearCookie("UserID");
     response.clearCookie("expiration");
     response.json(true);
 },
-/*
-getAllUsers(request, response) {
-    User.find({})
-        .then( (users) => {
-            response.json(users);
-        })
-        .catch(error => console.log(error))
-},
 
-show: (request, response) => {
-    User.findById(request.body).populate('surveys').exec()
-        .then( (user) => {
-            response.json(user);
-    })
-         .catch(error => console.log(error))
-},
-*/
 };
