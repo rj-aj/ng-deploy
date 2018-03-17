@@ -1,0 +1,22 @@
+<div class ="home">
+  <a [routerLink]="['/create']">Add a New Poll</a>
+  <h3>Current Polls</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Survey question</th>
+        <th>Date posted</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let survey of surveys">
+        <td>{{ survey._user.username }}</td>
+        <td>
+          <button class="btn btn-success" [routerLink]="['/survey', survey._id]">View Poll Details</button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

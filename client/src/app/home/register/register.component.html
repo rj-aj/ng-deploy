@@ -1,0 +1,42 @@
+
+ <div class="register">
+   <h3>Register Users</h3>
+   <div *ngIf="registrationErrors.length">
+      <ul class="alert alert-danger">
+        <li *ngFor="let error of registrationErrors">{{ error }}</li>
+      </ul>
+    </div>
+
+    <form (ngSubmit)="onSubmit(register.value)" #register='ngForm' class='form-group'>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" name="username" [(ngModel)]="user.username"
+        class="form-control" #username="ngModel" required>
+        <div *ngIf="(username.touched || username.dirty) && username.errors" class="errors">
+          <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" [(ngModel)]="user.password"
+        class="form-control" #password='ngModel' required minlength="4">
+        <div *ngIf="(password.touched || password.dirty) && password.errors" class="errors">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must have at least {{ password.errors.minlength.requiredLength }}</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" name="confirm_password" [(ngModel)]="user.confirm_password"
+        class="form-control" #confirm_password='ngModel' required minlength="4" pattern="{{user.password}}">
+        <div *ngIf="(confirm_password.touched || confirm_password.dirty) && confirm_password.errors" class="errors">
+          <div *ngIf="confirm_password.errors.required">Confirm_Password field is required</div>
+          <div *ngIf="confirm_password.errors.pattern">Passwords must match</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary"[disabled]="!register.valid">Register</button>
+    </form>
+  </div>
