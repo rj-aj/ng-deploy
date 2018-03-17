@@ -3,7 +3,7 @@
     <li *ngIf="!loggedIn"><a routerLink="/">Home</a></li>
 
     <div *ngIf="loggedIn" class="menu">
-        <button routerLink="/list">Dashboard</button>
+        <button routerLink="/dashboard">Dashboard</button>
         <button (click)="logout()">Logout</button>
     </div>
 

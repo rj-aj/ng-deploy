@@ -16,6 +16,10 @@ export class SurveyService {
     private cookieService: CookieService
   ) { }
   getSurveys() {
-    return this.http.get('/');
+    return this.http.get(`${this.baseURL}`);
+}
+createSurvey(survey: Survey) {
+  survey._user = this.cookieService.get('userID');
+  return this.http.post(`${this.baseURL}`, survey);
 }
 }

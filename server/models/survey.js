@@ -7,47 +7,56 @@ const SurveySchema = new Schema( {
 		         trim: true,
 		         minlength: 8,
             },
-    option1:{ type: String,
-		         required: true,
+    option1:{   value: { type: String,
+                 required: true,
 		         trim: true,
                  minlength: 3,
+                 default:""
+                 }
+                ,
                 votes: {
                 type: Number,
                 default: 0
                 }
             },
-            option2: {
-                type: String,
-		         required: true,
-		         trim: true,
-                 minlength: 3,
-                votes: {
-                type: Number,
-                default: 0
-                }
-            },
-            
-            option3: {
-                type: String,
-		         required: true,
-		         trim: true,
-                 minlength: 3,
-                votes: {
-                type: Number,
-                default: 0
-                }
-            },
-            
-            option4: {
-                type: String,
+            option2:{   value: { type: String,
                 required: true,
-		         trim: true,
-                 minlength: 3,
-                votes: {
-                type: Number,
-                default: 0
+                trim: true,
+                minlength: 3,
+                default:""
                 }
-            },
+               ,
+               votes: {
+               type: Number,
+               default: 0
+               }
+           },
+            
+           option3:{   value: { type: String,
+            required: true,
+            trim: true,
+            minlength: 3,
+            default:""
+            }
+           ,
+           votes: {
+           type: Number,
+           default: 0
+           }
+       },
+       option4:{   value: { type: String,
+        required: true,
+        trim: true,
+        minlength: 3,
+        default:""
+        }
+       ,
+       votes: {
+       type: Number,
+       default: 0
+       }
+   },
+            
             
         
         _user: { type: Schema.Types.ObjectId, ref: 'User', required: true }

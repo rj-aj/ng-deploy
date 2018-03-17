@@ -2,13 +2,18 @@ export class Survey {
      _id: string;
     _user: string;
     question: string;
-    option_1: string;
-    option_2: string;
-    option_3: string;
-    option_4: string;
-    vote_1: number;
-    vote_2: number;
-    vote_3: number;
-    vote_4: number;
+    option1: {value: string, votes: number};
+    option2: {value: string, votes: number};
+    option3: {value: string, votes: number};
+    option4: {value: string, votes: number};
+
+    constructor()
+    {
+     this.question = '';
+     this.option1 = { value: '' , votes: 0 } ;
+     this.option2 = { value: '' , votes: 0 } ;
+     this.option3 = { value: '' , votes: 0 } ;
+     this.option4 = { value: '' , votes: 0 } ;
+    }
   }
 

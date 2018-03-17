@@ -23,6 +23,12 @@ var User = mongoose.model('User');
 		},
 	
 		create(request, response) {
+			console.log('inside create api', request.body);
+			survey1 = new Survey();
+			console.log('survey mongoose api', survey1);
+			survey2 = new Survey(request.body);
+			//survey2._user = request.body._id ;
+			console.log('survey mongoose 2', survey2);
 			Survey.create(request.body)
 				.then(survey => {
 					console.log('created survey', survey)
