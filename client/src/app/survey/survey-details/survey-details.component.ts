@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./survey-details.component.css']
 })
 export class SurveyDetailsComponent implements OnInit {
-survey: Survey;
+survey: Survey = new Survey();
 
   constructor( private route: ActivatedRoute,
                private surveyService: SurveyService,
@@ -24,18 +24,20 @@ survey: Survey;
       );
     });
   }
-  voteUp(id, votes) {
+  voteUp(inSurvey, option) {
 
-    if (votes === 'votes') {
-      this.survey.option1.votes ++;
-    } else if (votes === 'votes') {
-      this.survey.option2.votes ++;
-    } else if (votes === 'votes') {
-      this.survey.option3.votes ++;
-    } else if (votes === 'votes') {
-      this.survey.option4.votes ++;
+    if (option === 'option1') {
+      inSurvey.option1.votes ++;
+    } else if (option === 'option2') {
+      inSurvey.option2.votes ++;
+    } else if (option === 'option3') {
+      inSurvey.option3.votes ++;
+    } else if (option === 'option4') {
+      inSurvey.option4.votes ++;
     }
+    console.log('-------------   votUp after if');
+    console.log(inSurvey);
 
-    this.surveyService.vote(id, this.survey).subscribe(survey => console.log('voted in details page'));
+    this.surveyService.vote(inSurvey._id, inSurvey).subscribe(survey => console.log('voted in details page', survey));
   }
 }

@@ -22,11 +22,11 @@
       <tr *ngFor="let survey of surveys">
         <td>{{ survey._user.username }}</td>
         <td>
-          <a [routerLink]="['/survey', survey._id]">{{ survey.question }}</a>
+          <a [routerLink]="['/survey', survey._id]">{{ survey.question }}{{survey._id}}</a>
         </td>
         <td>{{ survey.createdAt | date:'MMMM dd yyyy' }}</td>
         <td> <!--*ngIf="survey._user._id === userId" --> <button btn btn-danger (click)="onDelete(survey._id)"> Delete</button>
-
+          {{ survey._user._id }}
         </td>
       </tr>
 

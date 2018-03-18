@@ -1,38 +1,47 @@
 <div class="container">
-  <div class="detail">
-<h3> {{ survey.question }}</h3>
+  <div *ngIf="survey" class="detail">
+    <h3> {{ survey.question }}</h3>
 
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th>Option</th>
-      <th>Current Count of Votes</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-      <tr>
-        <td>{{ survey.option1.value }}</td>
-        <td> {{ survey.option1.votes }} </td>
-        <td><button (click)="voteUP(survey._id, 'survey.option1.votes')">Vote</button></td>
-      </tr>
-      <tr>
-        <td>{{ survey.option2.value }}</td>
-        <td> {{ survey.option2.votes }} </td>
-        <td><button (click)="voteUP(survey._id, 'survey.option2.votes')">Vote</button></td>
-      </tr>
-      <tr>
-        <td>{{ survey.option3.value }}</td>
-        <td> {{ survey.option3.votes }} </td>
-        <td><button (click)="voteUp(survey._id, 'survey.option3.votes')">Vote</button></td>
-      </tr>
-      <tr>
-        <td>{{ survey.option4.value }}</td>
-        <td> {{ survey.opiton4.votes }} </td>
-        <td><button (click)="voteUP(survey._id, 'survey.option4.votes')">Vote</button></td>
-      </tr>
-  </tbody>
-  {{survey | json}}
-</table>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Current Count of Votes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ survey.option1.value }}</td>
+          <td> {{ survey.option1.votes }} </td>
+          <td>
+            <button (click)="voteUp(survey,'option1')">Vote</button>
+          </td>
+        </tr>
+        <tr>
+          <td>{{ survey.option2.value }}</td>
+          <td> {{ survey.option2.votes }} </td>
+          <td>
+            <button (click)="voteUp(survey,'option2')">Vote</button>
+          </td>
+        </tr>
+        <tr>
+          <td>{{ survey.option3.value }}</td>
+          <td> {{ survey.option3.votes }} </td>
+          <td>
+            <button (click)="voteUp(survey,'option3')">Vote</button>
+          </td>
+        </tr>
+        <tr>
+          <td>{{ survey.option4.value }}</td>
+          <td> {{ survey.option4.votes }} </td>
+          <td>
+            <button (click)="voteUp(survey,'option4')">Vote</button>
+          </td>
+        </tr>
+      </tbody>
 
-</div>
+    </table>
+
+  </div>
+  </div>

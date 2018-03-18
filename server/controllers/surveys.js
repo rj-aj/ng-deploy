@@ -63,6 +63,7 @@ var User = mongoose.model('User');
 	
 		vote(request, response) {
 			 console.log(request.params);
+			 console.log('request body', request.body);
 			Survey.findByIdAndUpdate({_id: request.params.id}, request.body)
 				.then(survey => {
 					console.log('updated survey', survey)
