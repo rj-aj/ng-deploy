@@ -1,3 +1,4 @@
+
 import { AuthService } from './../../services/auth.service';
 import { Survey } from './../../survey';
 import { SurveyService } from './../../services/survey.service';
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class SurveyListComponent implements OnInit {
   surveys: any;
-  filter: String;
+
   userId;
   loggedIn: boolean;
 
@@ -22,7 +23,7 @@ export class SurveyListComponent implements OnInit {
 constructor(private surveyService: SurveyService,
             private cookieService: CookieService,
             private authService: AuthService,
-            private router: Router) { }
+            private router: Router ) { }
 
   ngOnInit() {
     this.authService.loggedIn$.subscribe(authed => (this.loggedIn = authed));

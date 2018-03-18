@@ -12,14 +12,14 @@ import { User } from '../../user';
 })
 export class LoginComponent implements OnInit {
   errors: string[] = [];
-  user = new User();
+  user: User = new User();
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
   onSubmit(user: User) {
-    this.auth.login(user).subscribe(
+    this.authService.login(user).subscribe(
       () => this.router.navigateByUrl('/dashboard'),
       error => {
         this.handleErrors(error.json());

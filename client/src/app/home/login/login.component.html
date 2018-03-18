@@ -14,10 +14,10 @@
       <div class="form-group">
         <label for="username">UserName</label>
         <input type="text" name="username" [(ngModel)]="user.username"
-        class="form-control" #username='ngModel' required>
+        class="form-control" #username='ngModel' required minlength="3">
+
       </div>
 
-
-      <button class="btn btn-primary" [disabled]="!login.valid">Login</button>
+     <button class="btn btn-primary" [disabled]="!login.valid">Login</button>
     </form>
   </div>

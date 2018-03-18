@@ -5,6 +5,7 @@
        <a [routerLink]="['/create']">Create a New Poll</a>
 
     </div>
+    <input [(ngModel)]="searchText" placeholder="search text goes here">
     <div class="col-md-4 col-md-pull-2">
       <a (click)="logout()">Logout</a>
     </div>
@@ -20,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let survey of surveys">
+      <tr *ngFor="let survey of surveys | searchFilterPipe : searchText">
         <td>{{ survey._user.username }}</td>
         <td>
           <a [routerLink]="['/survey', survey._id]">{{ survey.question }}</a>
