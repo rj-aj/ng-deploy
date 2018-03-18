@@ -14,25 +14,25 @@ var User = mongoose.model('User');
 		},
 	
 		findOne(request, response) {
-			console.log('hit server, getting survey')
-			console.log(request.params);
+			// console.log('hit server, getting survey')
+			// console.log(request.params);
 	
 			Survey.find({_id: request.params.id})
 				.then(survey => 
 					{
-						console.log('remove this survey', survey);
+						// console.log('remove this survey', survey);
 						response.json(survey)
 					})
 				.catch(error => response.status(404).json('error getting the survey'));
 		},
 	
 		create(request, response) {
-			console.log('inside create api', request.body);
+			// console.log('inside create api', request.body);
 			survey1 = new Survey();
-			console.log('survey mongoose api', survey1);
+			// console.log('survey mongoose api', survey1);
 			survey2 = new Survey(request.body);
 			//survey2._user = request.body._id ;
-			console.log('survey mongoose 2', survey2);
+			// console.log('survey mongoose 2', survey2);
 			Survey.create(request.body)
 				.then(survey => {
 					console.log('created survey', survey)
@@ -62,8 +62,8 @@ var User = mongoose.model('User');
 		},
 	
 		vote(request, response) {
-			 console.log(request.params);
-			 console.log('request body', request.body);
+			 // console.log(request.params);
+			 // console.log('request body', request.body);
 			Survey.findByIdAndUpdate({_id: request.params.id}, request.body)
 				.then(survey => {
 					console.log('updated survey', survey)

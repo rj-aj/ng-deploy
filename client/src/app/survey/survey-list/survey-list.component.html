@@ -1,16 +1,17 @@
-<div class="list">
-  <div class="row">
-      <div class="col-md-4 col-md-pull-2">
+<div class="list container">
 
-       <a [routerLink]="['/create']">Create a New Poll</a>
+  <div class="row float-right">
 
-    </div>
-    <input [(ngModel)]="searchText" placeholder="search text goes here">
-    <div class="col-md-4 col-md-pull-2">
-      <a (click)="logout()">Logout</a>
-    </div>
+
+          <a [routerLink]="['/create']">Create a New Poll</a>
+
+      <button class='logoutBtn'><a (click)="logout()">Logout</a></button>
+
+   </div>
+  <h5>Current Polls</h5>
+  <div class="float-right">
+   <input  [(ngModel)]="searchText" placeholder="search text goes here">
   </div>
-  <h3>Current Polls</h3>
   <table class="table table-striped">
     <thead>
       <tr>

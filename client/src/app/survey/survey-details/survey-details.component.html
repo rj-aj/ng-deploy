@@ -7,37 +7,37 @@
     <h5>Click the vote button to choose one</h5>
     <table class="table table-sm">
       <thead>
-        <tr>
-          <th>Option</th>
-          <th>Current Count of Votes</th>
-          <th>Action</th>
+        <tr >
+          <th class="align-middle">Option</th>
+          <th class="align-middle">Current Count of Votes</th>
+          <th class="align-middle">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>{{ survey.option1.value }}</td>
-          <td> {{ survey.option1.votes }} </td>
-          <td>
+          <td class="align-middle">{{ survey.option1.value }}</td>
+          <td class="align-middle"> {{ survey.option1.votes }} </td>
+          <td class="align-middle">
             <button (click)="voteUp(survey,'option1')">Vote</button>
           </td>
         </tr>
         <tr>
-          <td>{{ survey.option2.value }}</td>
-          <td> {{ survey.option2.votes }} </td>
+          <td class="align-middle">{{ survey.option2.value }}</td>
+          <td class="align-middle"> {{ survey.option2.votes }} </td>
           <td>
             <button (click)="voteUp(survey,'option2')">Vote</button>
           </td>
         </tr>
-        <tr>
-          <td>{{ survey.option3.value }}</td>
-          <td> {{ survey.option3.votes }} </td>
+        <tr >
+          <td class="align-middle">{{ survey.option3.value }}</td>
+          <td class="align-middle"> {{ survey.option3.votes }} </td>
           <td>
             <button (click)="voteUp(survey,'option3')">Vote</button>
           </td>
         </tr>
-        <tr>
-          <td>{{ survey.option4.value }}</td>
-          <td> {{ survey.option4.votes }} </td>
+        <tr >
+          <td class="align-middle">{{ survey.option4.value }}</td>
+          <td class="align-middle"> {{ survey.option4.votes }} </td>
           <td>
             <button (click)="voteUp(survey,'option4')">Vote</button>
           </td>

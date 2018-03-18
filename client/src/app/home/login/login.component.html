@@ -1,23 +1,19 @@
-
-
-<div class ="login">
-    <div *ngIf="errors.length">
-        <ul class="alert alert-danger">
-          <li *ngFor="let error of errors">{{ error }}</li>
-        </ul>
-      </div>
-
-    <h3>User Login</h3>
-
-    <form (ngSubmit)="onSubmit(login.value)" #login='ngForm' class='form-group'>
-
-      <div class="form-group">
-        <label for="username">UserName</label>
-        <input type="text" name="username" [(ngModel)]="user.username"
-        class="form-control" #username='ngModel' required minlength="3">
-
-      </div>
-
-     <button class="btn btn-primary" [disabled]="!login.valid">Login</button>
-    </form>
+<div class="login">
+  <div *ngIf="errors.length">
+    <ul class="alert alert-danger">
+      <li *ngFor="let error of errors">{{ error }}</li>
+    </ul>
   </div>
+
+  <form (ngSubmit)="onSubmit(login.value)" #login='ngForm'>
+
+    <div class="form-group row">
+      <label for="username" class="col-sm-2 col-form-label">Your Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="username" [(ngModel)]="user.username" #username='ngModel' required minlength="3">
+      </div>
+    </div>
+
+    <button class="btn btn-primary  float-right" [disabled]="!login.valid">Login</button>
+  </form>
+</div>

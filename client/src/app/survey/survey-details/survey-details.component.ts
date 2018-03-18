@@ -35,8 +35,8 @@ survey: Survey = new Survey();
     } else if (option === 'option4') {
       inSurvey.option4.votes ++;
     }
-    console.log('-------------   votUp after if');
-    console.log(inSurvey);
+    // console.log('-------------   votUp after if');
+    // console.log(inSurvey);
 
     this.surveyService.vote(inSurvey._id, inSurvey).subscribe(survey => console.log('voted in details page', survey));
   }

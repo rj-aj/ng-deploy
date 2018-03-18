@@ -1,5 +1,23 @@
 .list{
-  border: 5px solid lightgreen;
-  border-radius: 10px;
-  padding: 10px;
+    padding: 10px;
 }
+.row{
+  padding-bottom:10px;
+}
+.list a {
+  margin-right: 10px;
+
+}
+.table{
+  border: 2px solid black;
+}
+
+.table td{
+  text-align: center;
+}
+.table th{
+  text-align: center;
+}
+.logoutBtn{
+  margin-right:10px;
+  }

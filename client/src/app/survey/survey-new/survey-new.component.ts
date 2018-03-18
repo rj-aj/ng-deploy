@@ -20,7 +20,7 @@ export class SurveyNewComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('creating new survey');
+    // console.log('creating new survey');
     this.surveyService.createSurvey(this.survey).subscribe(
       survey => this.router.navigateByUrl('/dashboard'),
       error => { console.log ('error creating a new survey', error); }

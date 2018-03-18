@@ -8,7 +8,7 @@ function completeLogin(request, response, user) {
 }
 module.exports = {
     login(request, response) { 
-        console.log(request.body.username);
+        //console.log(request.body.username);
     User.findOne({ username: request.body.username })
         .then(user => {
             if(! user || user == null) { 

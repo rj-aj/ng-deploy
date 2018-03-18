@@ -1,12 +1,14 @@
    <div class = "container">
+     <div class="cancelBtn float-right">
       <a routerLink='/dashboard'>Cancel</a>
+    </div>
    <div *ngIf="creatingErrors.length">
         <ul class="alert alert-danger">
           <li *ngFor="let error of creatingErrors">{{ error }}</li>
         </ul>
       </div>
 <div class="new">
-  <h3>Create New Poll</h3>
+
   <p>Put the question and options here :</p>
 
    <form (ngSubmit)="onSubmit(createForm.value)" #createForm='ngForm'>
@@ -58,7 +60,7 @@
         <div *ngIf="option4.errors.minlength">Option-4 must have at least {{option4.errors.minlength.requiredLength }}</div>
       </div>
     </div>
-     <button class="btn btn-primary"[disabled]="!createForm.valid">Create New Survey</button>
+     <button class="btn btn-primary float-right"[disabled]="!createForm.valid">Create Poll</button>
 
    </form>
  </div>

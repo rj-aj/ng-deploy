@@ -20,20 +20,20 @@ export class SurveyService {
 }
 createSurvey(survey: Survey) {
   survey._user = this.cookieService.get('UserID');
-  console.log('cookie userid' , this.cookieService.get('UserID'));
+  // console.log('cookie userid' , this.cookieService.get('UserID'));
 
   return this.http.post(`${this.baseURL}`, survey);
 }
 
 getOneSurvey(id) {
-  console.log('getOneSurvey', id);
+  // console.log('getOneSurvey', id);
   return this.http.get(`${this.baseURL}/${id}`);
 }
 deleteSurvey(id) {
   return this.http.delete<any>(`${this.baseURL}/${id}`);
 }
 vote(id, survey) {
-  console.log('voted inside Sevice');
+  // console.log('voted inside Sevice');
   return this.http.post(`${this.baseURL}/${id}`, survey);
 }
 }

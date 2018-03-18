@@ -27,16 +27,16 @@ constructor(private surveyService: SurveyService,
 
   ngOnInit() {
     this.authService.loggedIn$.subscribe(authed => (this.loggedIn = authed));
-    console.log('*******', this.userId);
+
      this.surveyService.getSurveys().subscribe(
     data => {
-      console.log('"got our data!"', data);
+
       this.surveys = data;
     },
     error => console.log('error retrieving surveys', error)
   );
   this.userId = this.cookieService.get('UserID');
-  console.log('========', this.userId.toString());
+  // console.log('========', this.userId.toString());
 }
 
 isAuthed(): boolean {
@@ -47,10 +47,10 @@ logout(): void {
 }
 
 onDelete(id) {
-  console.log(this.userId);
+  // console.log(this.userId);
   this.surveyService.deleteSurvey(id).subscribe(
     deletedSurvey => {
-      console.log('deleted survey');
+      // console.log('deleted survey');
       this.surveys = this.surveys.filter(survey => survey._id !== id);
     },
     error => {

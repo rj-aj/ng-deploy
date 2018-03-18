@@ -1,5 +1,12 @@
 .detail{
-  border: 5px solid lightgreen;
-  border-radius: 10px;
-  padding: 10px;
+    padding: 10px;
+}
+.table{
+  border: 2px solid black;
+}
+.table td{
+  text-align: center;
+}
+.table th{
+  text-align: center;
 }
