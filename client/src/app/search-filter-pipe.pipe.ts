@@ -13,8 +13,13 @@ export class SearchFilterPipePipe implements PipeTransform {
       return items;
     }
     searchText = searchText.toLowerCase();
-    return items.filter( it => {
-      return it.question.toLowerCase().includes(searchText);
+
+    return items.filter( item => {
+      let result = false;
+      if (item.question.toLowerCase().includes(searchText) || item._user.username.toLowerCase().includes(searchText)) {
+        result = true;
+      }
+      return result;
     });
    }
 
