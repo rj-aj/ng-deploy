@@ -34,7 +34,7 @@ constructor(private surveyService: SurveyService,
     },
     error => console.log('error retrieving surveys', error)
   );
-  this.userId = this.cookieService.get('userID');
+  this.userId = this.cookieService.get('UserID');
   console.log('========', this.userId.toString());
 }
 

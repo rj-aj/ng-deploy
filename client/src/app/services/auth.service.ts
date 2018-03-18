@@ -17,7 +17,7 @@ loggedIn$ = new BehaviorSubject(this.isAuthed());
 
 isAuthed(): boolean {
   const session = this.cookieService.get('session');
-  const userId = this.cookieService.get('userID');
+  const userId = this.cookieService.get('UserID');
   const expiration = parseInt(this.cookieService.get('expiration'), 10);
   return session && userId && expiration && expiration > Date.now();
 }

@@ -1,5 +1,5 @@
    <div class = "container">
-      <button type="button" class="btn btn-warning" routerLink='/dashboard'>Go To Polls</button>
+      <a routerLink='/dashboard'>Cancel</a>
    <div *ngIf="creatingErrors.length">
         <ul class="alert alert-danger">
           <li *ngFor="let error of creatingErrors">{{ error }}</li>

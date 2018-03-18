@@ -1,7 +1,8 @@
 <div class="container">
+    <a [routerLink]="['/dashboard']">Go To Polls</a>
   <div *ngIf="survey" class="detail">
     <h3> {{ survey.question }}</h3>
-
+    <h5>Click the vote button to choose one</h5>
     <table class="table table-sm">
       <thead>
         <tr>
